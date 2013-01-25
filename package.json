@@ -1,0 +1,20 @@
+{
+  "name" : "expert",
+  "description" : "Semantic Network mini-framework for  Node.js",
+  "version" : "0.2.1",
+  "author" : "Ithai Levi <ithai.levi@gmail.com>",
+  "license" : "BSD",
+  "repository": {"type": "git", "url": "git://github.com/L3V3L9/expert.js.git"},
+  "keywords" : [
+     "framework",
+     "ai"
+  ],
+  "dependencies" : {
+     "underscore" : "*"
+  },
+  "devDependencies" : {
+     "mocha" : "*",
+     "assert" : "*",
+     "groc" : "*"
+  }
+}
