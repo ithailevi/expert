@@ -17,6 +17,7 @@
      "assert" : "*",
      "groc" : "*"
   },
+  "main" : "index",
   "scripts" : {
      "test" : "make test"
   }
