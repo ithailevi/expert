@@ -11,7 +11,7 @@ for building semantic networks. The result is a readable, easy to work with code
 
 Quick Example
 -------------
-```
+```javascript
 var expert = require('expert'),
     _ = require('underscore');
 
