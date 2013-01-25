@@ -25,7 +25,26 @@ describe("Relation",function() {
       assert(domain.Concept.create().smallerThan);
    });
 
+   it("is not transitive by default", function() {
+      var ant = domain.Concept.create({id:"ant"}),
+          dog = domain.Concept.create({id:"dog"}),
+          elephant = domain.Concept.create({id:"elephant"}),
+          smallerThan = domain.Relation.create({id:"smallerThan"});
+
+      ant.smallerThan(dog);
+      dog.smallerThan(elephant);
+      assert (smallerThan(ant, elephant) === false);
+   });
+
    it("can be defined as transitive", function() {
+      var ant = domain.Concept.create({id:"ant"}),
+          dog = domain.Concept.create({id:"dog"}),
+          elephant = domain.Concept.create({id:"elephant"}),
+          smallerThan = domain.Relation.create({id:"smallerThan",isTransitive:true});
+
+      ant.smallerThan(dog);
+      dog.smallerThan(elephant);
+      assert (smallerThan(ant, elephant) === true);
    });
 
    it("can have an inverse relation", function() {
