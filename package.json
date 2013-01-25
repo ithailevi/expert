@@ -16,5 +16,8 @@
      "mocha" : "*",
      "assert" : "*",
      "groc" : "*"
+  },
+  "scripts" : {
+     "test" : "make test"
   }
 }
