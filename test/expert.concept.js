@@ -24,7 +24,7 @@ describe("Concept",function() {
       var mammal = domain.Concept.create({id:"mammal"}); 
       var dog = domain.Concept.create({id:"dog"}); 
       dog.isa(mammal);
-      assert(domain.kindOf(mammal).length===1);
+      assert(domain.example(mammal).length===1);
    });
 
 });

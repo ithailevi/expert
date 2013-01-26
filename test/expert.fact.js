@@ -10,7 +10,7 @@ describe("Fact",function() {
           isa = domain.isa;
 
      domain.Fact.establish( dog, isa, mammal );
-     assert( domain.kindOf(mammal, dog) );
+     assert( domain.example(mammal, dog) );
    });
 
 });
