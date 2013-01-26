@@ -74,7 +74,7 @@ console.log("what has fur?");
 var answer1 = whatHas(fur);
 console.log(_.map( answer1, function(c){ return c.id; }));
 
-console.log("what mammal is bigger than a mouse and can swim?");
+console.log("what mammal that a mouse is smaller than, can swim?");
 var answer2 = _.intersection( example(mammal),
                               whatCan(swim),
                               smallerThan(mouse) );
@@ -96,7 +96,7 @@ var expert = require('expert'),
 To begin working with Expert.js you must first create a Domain object. 
 Concepts and Relations are part of a Domain. You can separate different
 semantic networks using different Domains. 
-The Concept and Relation objects are mear references.
+The Concept and Relation objects are mere references.
 
 ```javascript
 var domain   = expert.Domain(),
@@ -125,7 +125,7 @@ Concepts.
 ```
 
 Expert.js comes with 2 predefined relations: isa and example. You 
-can you isa to express abstraction hierarchies of Concepts. In this
+can use isa to express abstraction hierarchies of Concepts. In this
 example we will use isa to indicate that a dog, a cat and a mouse
 are kinds of mammal.
 
@@ -190,7 +190,7 @@ console.log("what has fur?");
 var answer1 = whatHas(fur);
 console.log(_.map( answer1, function(c){ return c.id; }));
 
-console.log("what mammal is bigger than a mouse and can swim?");
+console.log("what mammal that a mouse is small than, can swim?");
 var answer2 = _.intersection( example(mammal),
                               whatCan(swim),
                               smallerThan(mouse) );
