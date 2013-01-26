@@ -1,7 +1,7 @@
 {
   "name" : "expert",
   "description" : "Semantic Network mini-framework for  Node.js",
-  "version" : "0.2.1",
+  "version" : "0.2.2",
   "author" : "Ithai Levi <ithai.levi@gmail.com>",
   "license" : "BSD",
   "repository": {"type": "git", "url": "git://github.com/L3V3L9/expert.js.git"},
