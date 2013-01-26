@@ -32,7 +32,7 @@ var domain   = expert.Domain(),
     swim = Concept.create({id:"swim"}),
 
     isa = domain.isa,
-    kindOf = domain.kindOf,
+    example = domain.example,
 
     has = Relation.create({id:"has"}),
     whatHas = Relation.create({id:"what has",inverseFor:has}),
@@ -46,6 +46,7 @@ var domain   = expert.Domain(),
 
 salmon
    .isa(fish)
+   .biggerThan(mouse)
    .can(swim);
 
 whale
@@ -74,7 +75,9 @@ var answer1 = whatHas(fur);
 console.log(_.map( answer1, function(c){ return c.id; }));
 
 console.log("what mammal is bigger than a mouse and can swim?");
-var answer2 = _.intersection( kindOf(mammal), whatCan(swim),smallerThan(mouse));
+var answer2 = _.intersection( example(mammal),
+                              whatCan(swim),
+                              smallerThan(mouse) );
 console.log(_.map( answer2, function(c){ return c.id; }));
 
 ```
@@ -155,6 +158,7 @@ Establishing facts is as easy as it gets, if you used valid relation identifiers
 ```javascript
 salmon
    .isa(fish)
+   .biggerThan(mouse)
    .can(swim);
 
 whale
@@ -187,6 +191,8 @@ var answer1 = whatHas(fur);
 console.log(_.map( answer1, function(c){ return c.id; }));
 
 console.log("what mammal is bigger than a mouse and can swim?");
-var answer2 = _.intersection( kindOf(mammal), whatCan(swim),smallerThan(mouse));
+var answer2 = _.intersection( example(mammal),
+                              whatCan(swim),
+                              smallerThan(mouse) );
 console.log(_.map( answer2, function(c){ return c.id; }));
 ```
