@@ -7,7 +7,7 @@ Motivation
 ----------
 Representing knowledge for artificial intelligence applications can be simplified
 by the flexibility of scripting languages. Expert.js provides a DSL-like constructs 
-for building semantic networks. The result is readable code that's easy to work with.
+for building semantic networks. The result is readable code, that's easy to work with.
 
 Quick Example
 -------------
@@ -85,8 +85,7 @@ console.log(_.map( answer2, function(c){ return c.id; }));
 Step by Step
 ------------
 
-We begin by including Expert.js and Underscore.js. Underscore's 
-collection operators works great with Expert.js.
+We begin by including Expert.js and Underscore.js. 
 
 ```javascript
 var expert = require('expert'),
@@ -96,7 +95,9 @@ var expert = require('expert'),
 To begin working with Expert.js you must first create a Domain object. 
 Concepts and Relations are part of a Domain. You can separate different
 semantic networks using different Domains. 
-The Concept and Relation objects are mere references.
+
+The Concept and Relation objects are mere references and are declared
+for brevity.
 
 ```javascript
 var domain   = expert.Domain(),
@@ -106,9 +107,9 @@ var domain   = expert.Domain(),
 
 Concepts are the building blocks of your semantic network. You 
 can also provide a unique identifier that can help you identify 
-the concepts later. Concepts can be tangible or abstract. We will
+the concepts later on. Concepts can be tangible or abstract. We will
 soon see how you can describe the abstraction hierarchy of related
-Concepts.
+Concepts using an "isa" relation.
 
 ```javascript
     mammal = Concept.create({id:"mammal"}),
@@ -124,22 +125,26 @@ Concepts.
     swim = Concept.create({id:"swim"}),
 ```
 
-Expert.js comes with 2 predefined relations: isa and example. You 
-can use isa to express abstraction hierarchies of Concepts. In this
-example we will use isa to indicate that a dog, a cat and a mouse
-are kinds of mammal.
+Expert.js comes with 2 predefined relations: "isa" and "example". You 
+can use an "isa" relation to express abstraction hierarchies of Concepts. In this
+example we will use it to indicate that a dog, a cat, a whale and a mouse
+are kinds of mammal. 
 
 ```javascript
     isa = domain.isa,
     example = domain.example,
 ```
 
+The "example" relation is the inverse relation of "isa". Inverse relations
+maintain a back link between related concepts. This will allow you to 
+query relations from an inverse direction in the semantic network.
+
 You can define as many relation types as you wish. Relations
 allow you to introduce facts to your network of Concepts.
 Relations can also have unique identifiers. If you use an
 identifier that is also a valid JavaScript function name,
 Expert.js will create a method for your Domain's Concept
-prototype - for syntactic sugar - as seen in this example.
+prototype - for syntactic sugar.
 
 ```javascript
     has = Relation.create({id:"has"}),
@@ -153,7 +158,9 @@ prototype - for syntactic sugar - as seen in this example.
                                    inverseFor:biggerThan});
 ```
 
-Establishing facts is as easy as it gets, if you used valid relation identifiers.
+We can now use our defined relations to establish facts. In this example
+we use the shorthand method. This method was made possible because we 
+used valid function names as our relations identifiers.
 
 ```javascript
 salmon
@@ -183,7 +190,8 @@ mouse
    .has(fur);
 ```
 
-Finally, we can inspect our semantic network. Note how we use Underscore.js to :
+Finally, we can inspect our semantic network. Note how we use Underscore.js to do a primitive "join" 
+over inverse relations:
 
 ```javascript
 console.log("what has fur?");
