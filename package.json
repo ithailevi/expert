@@ -4,7 +4,7 @@
   "version" : "0.2.2",
   "author" : "Ithai Levi <ithai.levi@gmail.com>",
   "license" : "BSD",
-  "repository": {"type": "git", "url": "git://github.com/L3V3L9/expert.js.git"},
+  "repository": {"type": "git", "url": "https://github.com/L3V3L9/expert.git"},
   "keywords" : [
      "framework",
      "ai"
