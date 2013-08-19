@@ -17,6 +17,21 @@ describe("Domain",function() {
       assert(domain.Fact.establish);
    });
 
+   it("can be serialized to json",function() {
+      var domain = expert.Domain();
+      var mammal = domain.Concept.create({id:"mammal"}),
+          dog = domain.Concept.create({id:"dog"}),
+          elephant = domain.Concept.create({id:"elephant"}),
+          smallerThan = domain.Relation.create({id: "smallerThan",
+                                                isTransitive: true}),
+          biggerThan = domain.Relation.create({id:"biggerThan",
+                                               isTransitive:true,
+                                               inverseFor:smallerThan});
+      dog.isa(mammal);
+      elephant.isa(mammal);
+      dog.smallerThan(elephant);
+      domain.serialize();
+   });
 });
 
 
